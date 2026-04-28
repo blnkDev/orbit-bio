@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Orbit</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <img src="/favicon.png" alt="Logo" class="sidebar-logo">
+        <div>
+          <h2 style="margin:0;font-size:1.1rem;">Orbit</h2>
+          <span id="sidebar-username" style="font-size:0.8rem;opacity:0.4;"></span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="sidebar-tab-btn active" data-tab="profile">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Perfil
+        </button>
+        <button class="sidebar-tab-btn" data-tab="links">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          Links
+        </button>
+        <button class="sidebar-tab-btn" data-tab="social">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          Social
+        </button>
+        <button class="sidebar-tab-btn" data-tab="music">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          Música
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="sidebar-save-btn" class="sidebar-btn sidebar-save-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Salvar Alterações
+        </button>
+        <a id="view-profile-link" href="#" target="_blank" class="sidebar-btn sidebar-secondary-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Ver Perfil
+        </a>
+        <button id="logout-btn" class="sidebar-btn sidebar-logout-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Sair
+        </button>
+      </div>
+    </aside>
+
+    <main class="dashboard-main reveal-main-card">
+
+      <!-- ── TAB: PERFIL ─────────────────────────────────────── -->
+      <div class="tab-panel active" data-tab="profile">
+        <div class="dashboard-section">
+          <h2 class="section-title">Personalizar Perfil</h2>
+
+          <!-- Username Change Section -->
+          <div class="form-group" style="background: rgba(123, 44, 191, 0.1); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(123, 44, 191, 0.3); margin-bottom: 2rem;">
+            <label style="color: #fff; font-weight: 600;">Alterar URL do Perfil (@username)</label>
+            <p style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 0.8rem;">Atenção: Se alterar o username, a URL antiga do seu perfil deixará de funcionar imediatamente.</p>
+            <div style="display: flex; gap: 10px;">
+              <div class="input-wrapper" style="flex: 1; margin-bottom: 0;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <input type="text" id="username-change-input" placeholder="novo_username">
+              </div>
+              <button type="button" id="change-username-btn" class="primary-btn" style="width: auto; padding: 0 1.5rem;">Alterar</button>
+            </div>
+            <div id="username-message" style="margin-top: 10px; font-size: 0.85rem; display: none;"></div>
+          </div>
+
+          <form id="profile-form">
+            <div class="personalization-grid">
+              <div class="form-group">
+                <label>Nome de Exibição</label>
+                <div class="input-wrapper">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <input type="text" id="display-name-input" placeholder="Seu nome">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Localização</label>
+                <div class="input-wrapper">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <input type="text" id="location-input" placeholder="Ex: Brasil 🇧🇷">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top:1.5rem;">
+              <label>Bio</label>
+              <textarea id="bio-input" placeholder="Sua bio curta" rows="3"></textarea>
+            </div>
+
+            <div class="personalization-grid" style="margin-top:2rem;">
+              <div class="form-group">
+                <label>Avatar (URL)</label>
+                <div class="input-wrapper">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                  <input type="text" id="avatar-input" placeholder="https://...">
+                </div>
+                <img id="avatar-preview" src="" style="display:none;height:60px;width:60px;border-radius:50%;margin-top:1rem;border:2px solid rgba(123,44,191,0.3);">
+              </div>
+              <div class="form-group">
+                <label>Wallpaper (URL)</label>
+                <div class="input-wrapper">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 13h18M3 7h18M3 19h18"/></svg>
+                  <input type="text" id="wallpaper-input" placeholder="https://...">
+                </div>
+                <img id="wallpaper-preview" src="" style="display:none;height:60px;width:110px;border-radius:8px;margin-top:1rem;border:2px solid rgba(123,44,191,0.3);">
+              </div>
+            </div>
+
+            <div class="form-group checkbox-group" style="margin-top:1rem;">
+              <label><input type="checkbox" id="show-username-input"> Mostrar @username abaixo do nome</label>
+            </div>
+
+            <h3 class="section-title" style="margin-top:3rem;">Estilo e Visual</h3>
+            <div class="style-options-container">
+              <div class="personalization-grid">
+                <div class="form-group slider-group">
+                  <div class="label-with-value"><label>Opacidade</label><span id="opacity-val-display" class="value-badge">60%</span></div>
+                  <div class="slider-container">
+                    <input type="range" id="opacity-input" min="0" max="100" step="1">
+                    <div class="slider-markers" data-for="opacity-input"><span class="marker" data-val="0"></span><span class="marker" data-val="20"></span><span class="marker" data-val="40"></span><span class="marker" data-val="60"></span><span class="marker" data-val="80"></span><span class="marker" data-val="100"></span></div>
+                    <div class="slider-tooltip" id="opacity-tooltip">60%</div>
+                  </div>
+                </div>
+                <div class="form-group slider-group">
+                  <div class="label-with-value"><label>Desfoque (Blur)</label><span id="blur-val-display" class="value-badge">20px</span></div>
+                  <div class="slider-container">
+                    <input type="range" id="blur-input" min="0" max="80" step="1">
+                    <div class="slider-markers" data-for="blur-input"><span class="marker" data-val="0"></span><span class="marker" data-val="20"></span><span class="marker" data-val="40"></span><span class="marker" data-val="60"></span><span class="marker" data-val="80"></span></div>
+                    <div class="slider-tooltip" id="blur-tooltip">20px</div>
+                  </div>
+                </div>
+                <div class="form-group slider-group">
+                  <div class="label-with-value"><label>Intensidade do Glow</label><span id="glow-val-display" class="value-badge">0%</span></div>
+                  <div class="slider-container">
+                    <input type="range" id="glow-input" min="0" max="100" step="1">
+                    <div class="slider-markers" data-for="glow-input"><span class="marker" data-val="0"></span><span class="marker" data-val="25"></span><span class="marker" data-val="50"></span><span class="marker" data-val="75"></span><span class="marker" data-val="100"></span></div>
+                    <div class="slider-tooltip" id="glow-tooltip">0%</div>
+                  </div>
+                </div>
+                <div class="form-group checkbox-group" style="justify-content:center;height:100%;padding-top:1.5rem;">
+                  <label><input type="checkbox" id="verified-input"> Selo Verificado</label>
+                </div>
+              </div>
+
+              <div class="personalization-grid color-grid" style="margin-top:2rem;">
+                <div class="form-group"><label>Cor do Texto</label><div class="custom-color-picker" data-id="text-input"><div class="color-preview" id="text-input-preview" style="background:#ffffff;"></div><span class="color-hex" id="text-input-hex">#ffffff</span><input type="color" id="text-input" class="hidden-color-input"><svg class="picker-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l5 5"/></svg></div></div>
+                <div class="form-group"><label>Cor de Fundo</label><div class="custom-color-picker" data-id="bg-input"><div class="color-preview" id="bg-input-preview" style="background:#121212;"></div><span class="color-hex" id="bg-input-hex">#121212</span><input type="color" id="bg-input" class="hidden-color-input"><svg class="picker-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l5 5"/></svg></div></div>
+                <div class="form-group"><label>Cor dos Ícones</label><div class="custom-color-picker" data-id="icon-input"><div class="color-preview" id="icon-input-preview" style="background:#ffffff;"></div><span class="color-hex" id="icon-input-hex">#ffffff</span><input type="color" id="icon-input" class="hidden-color-input"><svg class="picker-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l5 5"/></svg></div></div>
+                <div class="form-group"><label>Fonte</label><select id="font-input"><option value="'Inter', sans-serif">Inter</option><option value="'Poppins', sans-serif">Poppins</option><option value="'Roboto Mono', monospace">Roboto Mono</option><option value="'Bebas Neue', cursive">Bebas Neue</option><option value="'Press Start 2P', cursive">Retro/Gaming</option></select></div>
+              </div>
+
+              <div class="personalization-grid" style="margin-top:2rem;">
+                <div class="form-group"><label>Estilo do Cursor</label><select id="cursor-input"><option value="default">Padrão</option><option value="crosshair">Mira (Crosshair)</option><option value="pointer">Mãozinha (Pointer)</option><option value="none">Oculto</option></select></div>
+                <div class="form-group"><label>Animação dos Cards</label><select id="animation-input"><option value="none">Nenhuma</option><option value="float">Flutuar</option><option value="pulse">Pulsar</option><option value="shake">Tremer</option><option value="glow">Brilho (Glow)</option></select></div>
+              </div>
+            </div>
+          </form>
+
+          <h3 class="section-title" style="margin-top:4rem;">Efeitos do Wallpaper</h3>
+          <div class="style-options-container">
+            <div class="personalization-grid">
+              <div class="form-group slider-group">
+                <div class="label-with-value"><label>Desfoque (Blur)</label><span id="wp-blur-val-display" class="value-badge">0px</span></div>
+                <div class="slider-container"><input type="range" id="wp-blur-input" min="0" max="100" step="1"><div class="slider-markers" data-for="wp-blur-input"><span class="marker" data-val="0"></span><span class="marker" data-val="20"></span><span class="marker" data-val="40"></span><span class="marker" data-val="60"></span><span class="marker" data-val="80"></span><span class="marker" data-val="100"></span></div><div class="slider-tooltip" id="wp-blur-tooltip">0px</div></div>
+              </div>
+              <div class="form-group slider-group">
+                <div class="label-with-value"><label>Brilho</label><span id="wp-brightness-val-display" class="value-badge">100%</span></div>
+                <div class="slider-container"><input type="range" id="wp-brightness-input" min="0" max="200" step="1"><div class="slider-markers" data-for="wp-brightness-input"><span class="marker" data-val="0"></span><span class="marker" data-val="50"></span><span class="marker" data-val="100"></span><span class="marker" data-val="150"></span><span class="marker" data-val="200"></span></div><div class="slider-tooltip" id="wp-brightness-tooltip">100%</div></div>
+              </div>
+            </div>
+            <div class="form-group" style="margin-top:1.5rem;"><label>Cor de Sobreposição (Overlay)</label><div class="custom-color-picker" data-id="wp-overlay-input"><div class="color-preview" id="wp-overlay-input-preview"></div><span class="color-hex" id="wp-overlay-input-hex">#00000000</span><input type="color" id="wp-overlay-input" class="hidden-color-input"><svg class="picker-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l5 5"/></svg></div></div>
+          </div>
+
+          <h3 class="section-title" style="margin-top:4rem;">Presets de Temas Rápidos</h3>
+          <p style="font-size:0.85rem;opacity:0.5;margin-bottom:1.5rem;">Escolha um estilo pronto para aplicar instantaneamente.</p>
+          <div class="theme-presets-grid">
+            <div class="theme-preset-card" data-theme="midnight"><div class="theme-preview-colors"><div class="theme-preview-dot" style="background:#121212;"></div><div class="theme-preview-dot" style="background:#7b2cbf;"></div><div class="theme-preview-dot" style="background:#ffffff;"></div></div><span class="theme-preset-name">Midnight Purple</span></div>
+            <div class="theme-preset-card" data-theme="matrix"><div class="theme-preview-colors"><div class="theme-preview-dot" style="background:#000000;"></div><div class="theme-preview-dot" style="background:#00ff88;"></div><div class="theme-preview-dot" style="background:#00ff88;"></div></div><span class="theme-preset-name">Matrix Green</span></div>
+            <div class="theme-preset-card" data-theme="cyberpunk"><div class="theme-preview-colors"><div class="theme-preview-dot" style="background:#001219;"></div><div class="theme-preview-dot" style="background:#ff0054;"></div><div class="theme-preview-dot" style="background:#00f5d4;"></div></div><span class="theme-preset-name">Cyberpunk</span></div>
+            <div class="theme-preset-card" data-theme="minimal"><div class="theme-preview-colors"><div class="theme-preview-dot" style="background:#ffffff;"></div><div class="theme-preview-dot" style="background:#000000;"></div><div class="theme-preview-dot" style="background:#222222;"></div></div><span class="theme-preset-name">Minimal Light</span></div>
+            <div class="theme-preset-card" data-theme="ocean"><div class="theme-preview-colors"><div class="theme-preview-dot" style="background:#001d3d;"></div><div class="theme-preview-dot" style="background:#00b4d8;"></div><div class="theme-preview-dot" style="background:#caf0f8;"></div></div><span class="theme-preset-name">Ocean Blue</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── TAB: LINKS ──────────────────────────────────────── -->
+      <div class="tab-panel" data-tab="links">
+        <div class="dashboard-section">
+          <h2 class="section-title">Gerenciar Links</h2>
+          <form id="link-form" style="display:grid;gap:1rem;margin-bottom:3rem;">
+            <div class="form-group"><label>Título do Link</label><input type="text" id="link-title" placeholder="Ex: Meu GitHub" required></div>
+            <div class="form-group"><label>URL</label><input type="url" id="link-url" placeholder="https://..." required></div>
+            <button type="submit" class="save-btn" style="margin-top:0.5rem;">Adicionar Novo Link</button>
+          </form>
+          <div id="links-list-admin" class="admin-links-list"></div>
+        </div>
+      </div>
+
+      <!-- ── TAB: SOCIAL ─────────────────────────────────────── -->
+      <div class="tab-panel" data-tab="social">
+        <div class="dashboard-section">
+          <h2 class="section-title">Redes Sociais</h2>
+          <form id="social-link-form" style="display:grid;gap:1rem;margin-bottom:3rem;">
+            <div class="form-group"><label>Plataforma</label><select id="social-platform"><option value="discord">Discord</option><option value="instagram">Instagram</option><option value="spotify">Spotify</option><option value="github">GitHub</option><option value="twitter">Twitter/X</option><option value="tiktok">TikTok</option><option value="youtube">YouTube</option><option value="twitch">Twitch</option><option value="steam">Steam</option></select></div>
+            <div class="form-group"><label>Usuário / Link</label><div class="social-input-wrapper"><span id="social-prefix" class="social-prefix-text">https://discord.gg/</span><input type="text" id="social-url" placeholder="seu_usuario" required></div></div>
+            <button type="submit" class="save-btn" style="margin-top:0.5rem;">Adicionar Rede Social</button>
+          </form>
+          <div class="reorder-info"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Arraste os cards para reordenar.</div>
+          <div id="social-links-list-admin" class="admin-links-list"></div>
+        </div>
+      </div>
+
+      <!-- ── TAB: MÚSICA ─────────────────────────────────────── -->
+      <div class="tab-panel" data-tab="music">
+        <div class="dashboard-section">
+          <h2 class="section-title">Música de Fundo</h2>
+          <div class="form-group" style="background:rgba(255,255,255,0.02);padding:2rem;border-radius:16px;border:1px solid rgba(255,255,255,0.05);">
+            <label>URL da Música (Link direto .mp3 ou Spotify)</label>
+            <input type="text" id="music-input" placeholder="Ex: https://files.com/song.mp3">
+            <p style="font-size:0.8rem;opacity:0.4;margin-top:1rem;">Links diretos (.mp3) mostram um player customizado no seu perfil. Cole um link de track do Spotify para o embed oficial.</p>
+          </div>
+          <button class="save-btn" style="margin-top:2rem;" onclick="document.getElementById('profile-form').dispatchEvent(new Event('submit',{cancelable:true}))">Salvar Música</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div id="notification-container"></div>
+  <script src="/js/dashboard.js"></script>
+
+  <script>
+    // Show username in sidebar after auth check sets it
+    const observer = new MutationObserver(() => {
+      const u = localStorage.getItem('username');
+      if (u) { document.getElementById('sidebar-username').textContent = '@' + u; observer.disconnect(); }
+    });
+    observer.observe(document.body, { subtree: true, childList: true });
+    const u = localStorage.getItem('username');
+    if (u) document.getElementById('sidebar-username').textContent = '@' + u;
+  </script>
+</body>
+</html>

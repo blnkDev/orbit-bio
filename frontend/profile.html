@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&family=Press+Start+2P&family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="wallpaper-bg"></div>
+  
+  <div class="container">
+    <div id="profile-container" class="main-card" style="display: none;">
+      <div class="profile-header">
+        <div class="avatar-container reveal-item" style="animation-delay: 0.1s;">
+          <img id="profile-avatar" alt="Avatar" class="avatar">
+          <div id="verified-badge" class="verified-badge" style="display: none;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"/></svg>
+          </div>
+        </div>
+        <h1 id="profile-username" class="reveal-item" style="animation-delay: 0.2s;"></h1>
+        <p id="profile-location" class="location-text reveal-item" style="animation-delay: 0.3s;"></p>
+        <p id="profile-bio" class="reveal-item" style="animation-delay: 0.4s;"></p>
+      </div>
+      <div id="social-icons" class="social-icons-list reveal-item" style="animation-delay: 0.5s;"></div>
+      <div id="profile-links-list" class="links-list reveal-item" style="animation-delay: 0.6s;"></div>
+    </div>
+    <div id="audio-container" style="display: none;"></div>
+    <div id="error-container" class="main-card" style="display: none;">
+      <h1>404</h1>
+      <p>Usuário não encontrado.</p>
+    </div>
+  </div>
+  <script src="/js/profile.js"></script>
+</body>
+</html>

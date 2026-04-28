@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+dist/
+
+# Environment Variables
+.env
+backend/.env
+frontend/.env
+
+# Databases
+*.sqlite
+backend/database.sqlite
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
