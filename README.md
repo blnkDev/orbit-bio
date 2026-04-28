@@ -2,11 +2,11 @@
   <img src="frontend/favicon.png" width="150" alt="Orbis Bio Logo">
 </p>
 
-# Orbis Bio 🪐
+# Orbit Bio
 
-> Uma plataforma moderna e segura para gerenciamento de perfis e agregação de links (Bio Links).
+> Uma plataforma open-source, moderna e segura para gerenciamento de perfis e agregação de links (Bio Links). Construída pela comunidade, para a comunidade!
 
-O **Orbis Bio** é a sua solução definitiva para concentrar toda a sua presença online em um único lugar. Crie uma página personalizada, adicione seus links, redes sociais, portfólio e compartilhe com seu público com um único URL.
+O **Orbit Bio** (anteriormente Orbis Bio) é um projeto de código aberto focado em oferecer uma alternativa robusta e gratuita para concentrar sua presença online em um único lugar. Nossa principal missão é construir a melhor plataforma de Bio Links possível de forma colaborativa, e **sua ajuda é fundamental**! Seja resolvendo problemas de UI, otimizando o backend ou implementando novas features, estamos de portas abertas para contribuições de desenvolvedores de todos os níveis.
 
 ## ✨ Funcionalidades
 
@@ -14,7 +14,7 @@ O **Orbis Bio** é a sua solução definitiva para concentrar toda a sua presen�
 - **Gerenciamento de Links:** Adicione, edite e reordene seus links facilmente no Dashboard.
 - **Autenticação Segura:** Login tradicional com criptografia avançada e suporte a Social Login (Google OAuth).
 - **Dashboard Intuitivo:** Gerencie seu nome de usuário, links e configurações gerais da conta.
-- **URLs Amigáveis:** Tenha o seu próprio endereço personalizado (ex: `seusite.com/seu-nome`).
+- **URLs Amigáveis:** Tenha o seu próprio endereço personalizado (ex: `orbitbio.space/seu-nome`).
 - **Segurança de Nível de Produção:** Proteção contra ataques de força bruta, injeções e cabeçalhos de segurança configurados.
 
 ## 🚀 Tecnologias Utilizadas
@@ -50,7 +50,9 @@ orbit-bio/
 └── vercel.json      # Configuração de deploy para a Vercel
 ```
 
-## 🛠️ Como rodar o projeto localmente
+## 🛠️ Ambiente de Desenvolvimento (Setup)
+
+Se você quer contribuir com o código, siga os passos abaixo para configurar seu ambiente local:
 
 ### Pré-requisitos
 - Node.js (v20 ou superior)
@@ -60,7 +62,7 @@ orbit-bio/
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/orbit-bio.git
+   git clone https://github.com/blnkDev/orbit-bio.git
    ```
 
 2. Acesse o diretório do projeto:
@@ -93,14 +95,28 @@ orbit-bio/
    http://localhost:3000
    ```
 
-## ☁️ Deploy
+## 🤝 Como Contribuir
 
-Este projeto está configurado nativamente para ser hospedado na **Vercel**. O arquivo `vercel.json` mapeia as rotas do backend Express para rodarem como Serverless Functions.
+Nós adoramos receber contribuições! Se você deseja ajudar a melhorar o Orbit Bio, siga os passos abaixo:
 
-1. Instale o Vercel CLI ou conecte o repositório ao painel da Vercel.
-2. Configure as Variáveis de Ambiente (PostgreSQL, JWT, etc.) no painel da Vercel.
-3. Faça o deploy!
+1. Faça um **Fork** do repositório.
+2. Crie uma branch para a sua feature: `git checkout -b feature/minha-feature`.
+3. Faça os commits com suas alterações: `git commit -m 'feat: minha nova funcionalidade'`.
+4. Envie o código para o seu fork: `git push origin feature/minha-feature`.
+5. Abra um **Pull Request** detalhando suas alterações.
+
+Dê uma olhada na nossa aba de [Issues](https://github.com/blnkDev/orbit-bio/issues) para encontrar tarefas abertas (procure pelas labels `good first issue` ou `help wanted`).
+
+## 🗺️ O que precisamos de ajuda? (Roadmap)
+- 🎨 Melhorias de UI/UX e novos temas para os perfis públicos.
+- 🧪 Criação de testes unitários e de integração.
+- 📈 Integração com ferramentas de Analytics (ex: Google Analytics, Pixel).
+- 🌍 Internacionalização (suporte a novos idiomas).
+
+## ☁️ Deploy (Vercel)
+
+A aplicação é otimizada para a Vercel. O arquivo `vercel.json` converte as rotas do Express para funções Serverless. Para testar o ambiente de produção localmente ou subir seu próprio fork, basta conectar o repositório à Vercel e configurar as variáveis de ambiente.
 
 ## 📄 Licença
 
-Este projeto está sob a licença ISC.
+Este projeto é de código aberto sob a licença ISC. Sinta-se à vontade para bifurcar e colaborar!
