@@ -1,10 +1,18 @@
 <p align="center">
-  <img src="frontend/favicon.png" width="150" alt="Orbis Bio Logo">
+  <img src="frontend/favicon.png" width="120" alt="Orbit Bio Logo">
 </p>
 
-# Orbit Bio
+<h1 align="center">Orbit Bio</h1>
 
-> Uma plataforma open-source, moderna e segura para gerenciamento de perfis e agregação de links (Bio Links).
+<p align="center">
+  <strong>Sua vitrine digital definitiva. Moderna, segura e totalmente personalizável.</strong>
+</p>
+
+<p align="center">
+  Uma plataforma open-source para gerenciamento de perfis e agregação de links.
+</p>
+
+---
 
 O **Orbit Bio** é a sua solução definitiva para concentrar toda a sua presença online em um único lugar. Com foco em design, performance e liberdade, o projeto oferece aos usuários a capacidade de construir páginas de Bio verdadeiramente únicas. Queremos que cada perfil reflita 100% a identidade do seu criador, fugindo do visual "padrão" das plataformas convencionais.
 
