@@ -4,18 +4,33 @@
 
 # Orbit Bio
 
-> Uma plataforma open-source, moderna e segura para gerenciamento de perfis e agregação de links (Bio Links). Construída pela comunidade, para a comunidade!
+> Uma plataforma open-source, moderna e segura para gerenciamento de perfis e agregação de links (Bio Links).
 
-O **Orbit Bio** (anteriormente Orbis Bio) é um projeto de código aberto focado em oferecer uma alternativa robusta e gratuita para concentrar sua presença online em um único lugar. Nossa principal missão é construir a melhor plataforma de Bio Links possível de forma colaborativa, e **sua ajuda é fundamental**! Seja resolvendo problemas de UI, otimizando o backend ou implementando novas features, estamos de portas abertas para contribuições de desenvolvedores de todos os níveis.
+O **Orbit Bio** é a sua solução definitiva para concentrar toda a sua presença online em um único lugar. Com foco em design, performance e liberdade, o projeto oferece aos usuários a capacidade de construir páginas de Bio verdadeiramente únicas. Queremos que cada perfil reflita 100% a identidade do seu criador, fugindo do visual "padrão" das plataformas convencionais.
 
-## ✨ Funcionalidades
+## 📌 Funcionalidades
 
 - **Perfis Personalizáveis:** Crie uma página com a sua identidade visual.
 - **Gerenciamento de Links:** Adicione, edite e reordene seus links facilmente no Dashboard.
 - **Autenticação Segura:** Login tradicional com criptografia avançada e suporte a Social Login (Google OAuth).
 - **Dashboard Intuitivo:** Gerencie seu nome de usuário, links e configurações gerais da conta.
 - **URLs Amigáveis:** Tenha o seu próprio endereço personalizado (ex: `orbitbio.space/seu-nome`).
-- **Segurança de Nível de Produção:** Proteção contra ataques de força bruta, injeções e cabeçalhos de segurança configurados.
+
+## 🎨 O seu perfil, as suas regras (Personalização)
+
+Acreditamos que a sua página de Bio deve ser a sua vitrine digital. Com o Orbit Bio, você tem acesso a:
+
+- **Identidade Visual Completa:** Escolha cores, ajuste o estilo dos botões, adicione efeitos modernos e muito mais. O limite é a sua criatividade!
+- **Micro-interações:** Animações fluidas e hover states dinâmicos que tornam a experiência de quem acessa o seu perfil muito mais premium e agradável.
+- **Flexibilidade Total de Links:** Adicione todos os seus projetos, redes sociais, portfólio ou lojas virtuais, reordenando-os facilmente com nosso sistema intuitivo.
+- **A sua URL:** Garanta exclusividade e presença digital com um link limpo e memorável: `orbitbio.space/seu-nome`.
+
+## ⚙️ Destaques Técnicos & Segurança
+
+- **Dashboard Real-Time:** Uma área administrativa simples, focada na melhor experiência do usuário (UX), para gerenciar a sua página.
+- **Autenticação Segura:** Login seguro com criptografia avançada (bcrypt) e conveniência do **Google OAuth**.
+- **Segurança de Ponta:** Proteções ativas contra força bruta e injeções, rodando de forma resiliente.
+- **100% Open-Source:** Gratuito, transparente e em constante evolução.
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -79,7 +94,6 @@ Se você quer contribuir com o código, siga os passos abaixo para configurar se
    Crie um arquivo `.env` na raiz do projeto com as credenciais do seu banco e chaves de segurança:
    ```env
    PORT=3000
-   DATABASE_URL=postgres://usuario:senha@localhost:5432/nome_do_banco
    JWT_SECRET=sua_chave_secreta_jwt
    GOOGLE_CLIENT_ID=seu_client_id_google
    GOOGLE_CLIENT_SECRET=seu_client_secret_google
@@ -106,16 +120,6 @@ Nós adoramos receber contribuições! Se você deseja ajudar a melhorar o Orbit
 5. Abra um **Pull Request** detalhando suas alterações.
 
 Dê uma olhada na nossa aba de [Issues](https://github.com/blnkDev/orbit-bio/issues) para encontrar tarefas abertas (procure pelas labels `good first issue` ou `help wanted`).
-
-## 🗺️ O que precisamos de ajuda? (Roadmap)
-- 🎨 Melhorias de UI/UX e novos temas para os perfis públicos.
-- 🧪 Criação de testes unitários e de integração.
-- 📈 Integração com ferramentas de Analytics (ex: Google Analytics, Pixel).
-- 🌍 Internacionalização (suporte a novos idiomas).
-
-## ☁️ Deploy (Vercel)
-
-A aplicação é otimizada para a Vercel. O arquivo `vercel.json` converte as rotas do Express para funções Serverless. Para testar o ambiente de produção localmente ou subir seu próprio fork, basta conectar o repositório à Vercel e configurar as variáveis de ambiente.
 
 ## 📄 Licença
 
